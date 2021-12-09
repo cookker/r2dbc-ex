@@ -1,0 +1,45 @@
+spring:
+#  datasource:
+#    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE
+#    username: sa
+#    password:
+#    driverClassName: org.h2.Driver
+#  jpa:
+#    open-in-view: false
+#    generate-ddl: true
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#        use_sql_comments: true
+#        jdbc:
+#          batch_size: 500
+#    hibernate:
+#      ddl-auto: create-drop
+#    database-platform: org.hibernate.dialect.H2Dialect
+
+
+#  r2dbc:
+#    url: r2dbc:h2:mem:testdb
+#    url: r2dbc:h2:mem:///~/db/testdb
+#    username: sa
+#    password:
+  profiles:
+    include:
+      - h2
+  h2:
+    console:
+      path: h2-console
+      enabled: true
+logging:
+  level:
+    root: info
+    org.hibernate.type.descriptor.sql: trace
+    ms.me.springr2jdbc: debug
+    org.hibernate.sql: debug
+    org.springframework.web.client: debug
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.springframework.security: debug
+
+h2-server.h2-console-port: 8081
